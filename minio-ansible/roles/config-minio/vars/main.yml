@@ -1,0 +1,5 @@
+---
+# vars file for config-minio
+minioadmin: minioadmin
+root_pass: troque-o-password
+url_padrao: console.subdominio.com.br

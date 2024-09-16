@@ -1,0 +1,5 @@
+---
+# tasks file for config-minio
+- name: Configurando minio-server
+  include_tasks:
+    file: config-minio.yml

@@ -1,0 +1,14 @@
+- name: Baixar e instalador do MinIO Client
+  shell: wget https://dl.min.io/client/mc/release/linux-amd64/mc
+
+- name: Permissões de execução
+  shell: chmod +x mc
+
+- name: Movendo o binario para o path correto
+  shell: mv mc /usr/local/bin/mc
+
+- name: Criando alias para o comando mc
+  shell: mc alias set 'myminio' http://127.0.0.1:9000 '{{ minioadmin }}' '{{ root_pass }}'
+
+- name: Testando o comando mc
+  shell: mc admin info myminio

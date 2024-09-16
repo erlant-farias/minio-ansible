@@ -1,0 +1,35 @@
+- name: Criar grupo MinIO
+  shell: groupadd -r minio-user
+
+- name: Criar Usuario MinIO
+  shell: useradd -m -d /home/minio-user -r -g minio-user minio-user
+
+- name: Criar diretório para Armazenamento
+  file:
+    path: /mnt/data
+    state: directory
+    owner: minio-user   
+    group: minio-user  
+    mode: "0755"  
+
+
+- name: Criar diretório para certificados
+  file:
+    path: /home/minio-user/.minio/certs
+    state: directory
+    owner: minio-user   
+    group: minio-user  
+    mode: "0644"  
+
+- name: Envio dos arquivos de certificados
+  copy:
+    src: "{{ item }}"
+    dest: /home/minio-user/.minio/certs/{{ item }}
+    owner: minio-user
+    group: minio-user
+    mode: "0644"
+  loop: 
+  - wild.dominio.crt
+  - wild.dominio.key
+  tags:
+  - copia_certificados

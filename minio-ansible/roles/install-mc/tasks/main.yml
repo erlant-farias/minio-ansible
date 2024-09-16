@@ -1,0 +1,5 @@
+---
+# tasks file for install-mc
+- name: Instalando minio-client
+  include_tasks:
+    file: install-mc.yml

@@ -1,0 +1,5 @@
+---
+# tasks file for install-minio
+- name: Instalando MINIO
+  include_tasks:
+    file: install-minio.yml

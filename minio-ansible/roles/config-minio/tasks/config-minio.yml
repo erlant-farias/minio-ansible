@@ -1,0 +1,21 @@
+- name: Envio do arquivo de configuração
+  template:
+    src: minio.j2
+    dest: /etc/default/minio
+    owner: minio-user
+    group: minio-user
+    mode: "0644"
+
+- name: Envio do arquivo de configuração do Systemd
+  copy:
+    src: minio.service
+    dest: /etc/systemd/system/minio.service
+    owner: minio-user
+    group: minio-user
+    mode: "0744"
+
+- name: Habilitar e Iniciar o Serviço do MinIO
+  systemd:
+    name: minio
+    enabled: yes
+    state: started

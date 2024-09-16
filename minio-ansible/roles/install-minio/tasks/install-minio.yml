@@ -1,0 +1,12 @@
+- name: Atualização do APT
+  apt:
+    update_cache: yes
+
+- name: Baixar o instalador do MinIO
+  shell: wget https://dl.min.io/server/minio/release/linux-amd64/archive/minio_20240315010719.0.0_amd64.deb -O minio.deb
+
+- name: Executar MinIO
+  shell: dpkg -i minio.deb
+
+- name: Verificar o path do MinIO 
+  shell: which minio

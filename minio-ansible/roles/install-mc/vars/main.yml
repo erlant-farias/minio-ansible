@@ -1,0 +1,4 @@
+---
+# vars file for install-mc
+minioadmin: minioadmin
+root_pass: troque-o-password

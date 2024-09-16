@@ -1,0 +1,24 @@
+- hosts: minio-server
+  become: yes
+  user: ubuntu
+  roles: 
+  - { role: config-pre-minio, tags: ["config_pre_minio_role"] }
+
+- hosts: minio-server
+  become: yes
+  user: ubuntu
+  roles: 
+  - { role: install-minio, tags: ["install_minio_role"] }
+
+- hosts: minio-server
+  become: yes
+  user: ubuntu
+  roles: 
+  - { role: config-minio, tags: ["config_minio_role"] }
+
+- hosts: minio-server
+  become: yes
+  user: ubuntu
+  roles: 
+  - { role: install-mc, tags: ["install_mc_role"] }
+

@@ -1,0 +1,5 @@
+---
+# tasks file for config-pre-minio
+- name: Pré configuração do ambiente
+  include_tasks:
+    file: config-pre-minio.yml
